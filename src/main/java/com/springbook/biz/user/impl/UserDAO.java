@@ -12,6 +12,7 @@ import com.springbook.biz.user.UserService;
 import com.springbook.biz.user.UserVO;
 
 // DAO (DATA Access Object)
+@Repository
 public class UserDAO implements UserService {
 	// JDBC 관련 변수
 	private Connection conn = null;

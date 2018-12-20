@@ -13,7 +13,7 @@ import com.springbook.biz.board.BoardService;
 import com.springbook.biz.board.BoardVO;
 import com.springbook.biz.common.JDBCUtil;
 
-@Repository("board")
+@Repository("boardDAO")
 public class BoardDAO implements BoardService {
 
 //  JDBC 관련 변수
