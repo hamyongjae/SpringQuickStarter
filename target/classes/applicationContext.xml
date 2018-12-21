@@ -36,7 +36,7 @@
 			expression="execution(* com.springbook.biz..*impl.*(..))" id="allPointcut" />
 			
 		<aop:aspect ref="before">
-			<aop:before pointcut-ref="allPointcut" method="beforeLog" />
+			<aop:before pointcut-ref="allPointcut" method="afterLog" />
 		</aop:aspect>
 	</aop:config>
 
