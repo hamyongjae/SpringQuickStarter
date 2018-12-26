@@ -17,7 +17,7 @@ CREATE TABLE USERS(
 insert into USERS value ("test", "1234","gkadydwo","22");
 insert into 
 select * from USERS;
-
+select * from BOARD;
 desc board;
 
 DROP TABLE board;
