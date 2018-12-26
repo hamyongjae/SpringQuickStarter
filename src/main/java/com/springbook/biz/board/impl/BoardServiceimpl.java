@@ -12,7 +12,7 @@ import com.springbook.biz.board.BoardVO;
 public class BoardServiceimpl implements BoardService{
 	
 	@Autowired
-	private BoardDAO boardDAO;
+	private BoardDAOSpring boardDAO;
 
 	public void insertBoard(BoardVO vo) {
 //		if(vo.getSeq()==0) {

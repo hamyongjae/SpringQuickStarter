@@ -1,5 +1,7 @@
 package com.springbook.biz.board.impl;
 
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,5 +51,10 @@ public class BoardDAOSpring extends JdbcDaoSupport {
 		System.out.println("===> Spring JDBC로 getBoard() 기능 처리");
 		Object[] args = {vo.getSeq()};
 		return getJdbcTemplate().queryForObject(BOARD_GET, args, new BoardRowMapper());
+	}
+	
+	public List<BoardVO> getBoardList(BoardVO vo){
+		System.out.println("===> Spring JDBC로 getBoardList() 기능 처리");
+		return getJdbcTemplate().query(BOARD_LIST, new BoardRowMapper());
 	}
 }

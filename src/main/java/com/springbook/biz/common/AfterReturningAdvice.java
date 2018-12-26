@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service;
 
 import com.springbook.biz.user.UserVO;
 
-@Service
-@Aspect
+//@Service
+//@Aspect
 public class AfterReturningAdvice {
 	
-	@Pointcut("execution(* com.springbook.biz..*impl.get*(..))")
-	public void getPointcut() {}
+	//@Pointcut("execution(* com.springbook.biz..*impl.get*(..))")
+	//public void getPointcut() {}
 	
-	@AfterReturning(pointcut="getPointcut()", returning="returnObj")
+	//@AfterReturning(pointcut="getPointcut()", returning="returnObj")
 	public void afterLog(JoinPoint jp, Object returnObj) {
 		String method = jp.getSignature().getName();
 		

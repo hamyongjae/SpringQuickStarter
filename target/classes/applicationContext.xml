@@ -62,4 +62,9 @@
         <property name="username" value="root" />
         <property name="password" value="1234" />
     </bean>
+    
+    <!-- Spring JDBC 설정 -->
+    <bean id="jdbcTemplate" class="org.springFramework.jdbc.core.JdbcTemplate">
+    	<property name="dataSource" ref="dataSource"/>
+    </bean>
 </beans>

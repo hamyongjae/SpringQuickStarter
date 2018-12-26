@@ -6,14 +6,14 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Service;
 
-@Service
-@Aspect
+//@Service
+//@Aspect
 public class AfterThrowingAdvice {
 	
-	@Pointcut("execution(* com.springbook.biz..*impl.*(..))")
-	public void allPointcut() {}
+	//@Pointcut("execution(* com.springbook.biz..*impl.*(..))")
+	//public void allPointcut() {}
 	
-	@AfterThrowing(pointcut="PointcutCommon.getPointcut()", throwing="returnObj")
+	//@AfterThrowing(pointcut="PointcutCommon.getPointcut()", throwing="returnObj")
 	public void exceptionLog(JoinPoint jp, Exception exceptObj) {
 		String method = jp.getSignature().getName();
 		System.out.println(method + "() 메소드 수행 중 예외 발생!");
