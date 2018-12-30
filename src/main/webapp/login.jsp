@@ -20,7 +20,7 @@
 				</tr>
 				<tr>
 					<td bgcolor="orange">비밀번호</td>
-					<td><input type="password name="password"/></td>
+					<td><input type="password" name="password"/></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center">

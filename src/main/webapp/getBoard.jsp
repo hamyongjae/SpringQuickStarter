@@ -4,16 +4,19 @@
 
 <%
 	// 1. 검색할 게시글 번호 추출
-	String seq = request.getParameter("seq"); 
+	//String seq = request.getParameter("seq"); 
 	
 	// 2. DB 연동 처리
-	BoardVO vo = new BoardVO();
-	vo.setSeq(Integer.parseInt("1"));
+	//BoardVO vo = new BoardVO();
+	//vo.setSeq(Integer.parseInt("1"));
 	
-	BoardDAO boardDAO = new BoardDAO();
-	BoardVO board = boardDAO.getBoard(vo);
+	//BoardDAO boardDAO = new BoardDAO();
+	//BoardVO board = boardDAO.getBoard(vo);
 
 	// 3. 응답 화면 구성
+	
+	// 세션에 저장된 게시글 정보를 꺼낸다.
+	BoardVO board = (BoardVO) session.getAttribute("board");
 
 %>
 
@@ -28,7 +31,7 @@
 <h1>글 상세</h1>
 <a href="logout_proc.jsp">Log-out</a>
 <hr>
-<form action="updateBoard_proc.jsp" method="post">
+<form action="updateBoard.do" method="post">
 <input name="seq" type="hidden" value="<%= board.getSeq() %>"/>
 <table border="1" cellpadding="0" cellspacing="0">
 	<tr>
@@ -40,11 +43,11 @@
 		<td align="left"><%= board.getWriter() %></td> 
 	</tr>
 	<tr>
-		<td bgcolor="color">내용</td>
+		<td bgcolor="color">등록일</td>
 		<td align="left"><%= board.getRegDate() %></td>
 	</tr>
 	<tr>
-		<td bgcolor="color">등록일</td>
+		<td bgcolor="color">내용</td>
 		<td align="left"><textarea name="content" cols="40" rows="10">
 			<%= board.getContent() %></textarea></td>
 	</tr>
@@ -61,8 +64,8 @@
 </form>
 <hr>
 <a href="insertBoard.jsp">글등록</a>&nbsp;&nbsp;&nbsp;
-<a href="deleteBoard_proc.jsp?seq=<%= board.getSeq() %>">글삭제</a>&nbsp;&nbsp;&nbsp;
-<a href="getBoardList.jsp">글목록</a>
+<a href="deleteBoard.do?seq=<%= board.getSeq() %>">글삭제</a>&nbsp;&nbsp;&nbsp;
+<a href="getBoardList.do">글목록</a>
 </center>
 </body>
 </html>

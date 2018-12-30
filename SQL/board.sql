@@ -15,9 +15,11 @@ CREATE TABLE USERS(
 );
 
 insert into USERS value ("test", "1234","gkadydwo","22");
-insert into 
-select * from USERS;
-select * from BOARD;
-desc board;
+insert into USERS value ("yongjae2", "1111","함용재","개발자");
 
+insert into 
+SELECT * from USERS;
+select SEQ from board;
+desc board;
+delete from board where seq=1
 DROP TABLE board;
