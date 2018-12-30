@@ -32,10 +32,6 @@ public class BoardDAO implements BoardService {
 
 	// CRUD 기능의 메소드 구현
 	// 글 등록
-	/* (non-Javadoc)
-	 * @see com.springbook.biz.board.impl.BoardService#insertBoard(com.springbook.biz.board.BoardVO)
-	 */
-	@Override
 	public void insertBoard(BoardVO vo) {
 		System.out.println("===> JDBC로 insertBoard() 기능 처리");
 
@@ -54,10 +50,6 @@ public class BoardDAO implements BoardService {
 	}
 
 	//글 수정
-	/* (non-Javadoc)
-	 * @see com.springbook.biz.board.impl.BoardService#updateBoard(com.springbook.biz.board.BoardVO)
-	 */
-	@Override
 	public void updateBoard(BoardVO vo) {
 		System.out.println("===> JDBC로 updateBoard() 기능 처리");
 		try {
@@ -75,10 +67,6 @@ public class BoardDAO implements BoardService {
 	}
 
 	// 글 삭제
-	/* (non-Javadoc)
-	 * @see com.springbook.biz.board.impl.BoardService#deleteBoard(com.springbook.biz.board.BoardVO)
-	 */
-	@Override
 	public void deleteBoard(BoardVO vo) {
 		System.out.println("===> JDBC로 deleteBoard() 기능 처리");
 		try {
@@ -94,10 +82,6 @@ public class BoardDAO implements BoardService {
 	}
 
 	// 글 상세 조회
-	/* (non-Javadoc)
-	 * @see com.springbook.biz.board.impl.BoardService#getBoard(com.springbook.biz.board.BoardVO)
-	 */
-	@Override
 	public BoardVO getBoard(BoardVO vo) {
 		System.out.println("===> JDBC로 getBoard() 기능 처리");
 		BoardVO board = null;
@@ -125,10 +109,6 @@ public class BoardDAO implements BoardService {
 	}
 
 	// 글 목록 조회
-	/* (non-Javadoc)
-	 * @see com.springbook.biz.board.impl.BoardService#getBoardList(com.springbook.biz.board.BoardVO)
-	 */
-	@Override
 	public List<BoardVO> getBoardList(BoardVO vo) {
 		System.out.println("===> JDBC로 getBoardList() 기능 처리");
 		List<BoardVO> boardList = new ArrayList<BoardVO>();

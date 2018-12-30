@@ -12,33 +12,33 @@ import com.springbook.biz.board.BoardVO;
 public class BoardServiceimpl implements BoardService{
 	
 	@Autowired
-	private BoardDAOSpring boardDAO;
+	private BoardDAOSpring boardDAOSpring;
 
 	public void insertBoard(BoardVO vo) {
 //		if(vo.getSeq()==0) {
 //			throw new IllegalArgumentException("0번 글은 등록할 수 없습니다");
 //		}
-		boardDAO.insertBoard(vo);
+		boardDAOSpring.insertBoard(vo);
 	}
 
 	@Override
 	public void updateBoard(BoardVO vo) {
-		boardDAO.updateBoard(vo);
+		boardDAOSpring.updateBoard(vo);
 	}
 
 	@Override
 	public void deleteBoard(BoardVO vo) {
-		boardDAO.deleteBoard(vo);
+		boardDAOSpring.deleteBoard(vo);
 	}
 
 	@Override
 	public BoardVO getBoard(BoardVO vo) {
-		return boardDAO.getBoard(vo);
+		return boardDAOSpring.getBoard(vo);
 	}
 
 	@Override
 	public List<BoardVO> getBoardList(BoardVO vo) {
-		return boardDAO.getBoardList(vo);
+		return boardDAOSpring.getBoardList(vo);
 	}
 
 }

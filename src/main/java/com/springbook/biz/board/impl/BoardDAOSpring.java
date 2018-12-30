@@ -2,17 +2,19 @@ package com.springbook.biz.board.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.springbook.biz.board.BoardVO;
 
-@Repository
+@Repository("boardDAOSpring")
 public class BoardDAOSpring {
 	
-	//@Autowired
-	private JdbcTemplate jdbcTemplate;
-	
+	@Autowired
+    private JdbcTemplate jdbcTemplate;
+
 	// SQL 명령어들
 	private final String BOARD_INSERT = "insert into board(seq, title, writer, content) "
 			+ "values((select nvl(max(seq),0)+1 from board ALIAS_FOR_SUBQUERY),?,?,?)";
@@ -37,7 +39,11 @@ public class BoardDAOSpring {
 	// 글 삭제
 
 	public void deleteBoard(BoardVO vo) {
+		int temp = vo.getSeq();
+		System.out.println("ㅇㅇ");
+		System.out.println(temp);
 		System.out.println("===> Spring JDBC로 deleteBoard() 기능 처리");
+		
 		jdbcTemplate.update(BOARD_DELETE, vo.getSeq());
 	}
 
@@ -53,3 +59,19 @@ public class BoardDAOSpring {
 		return jdbcTemplate.query(BOARD_LIST, new BoardRowMapper());
 	}
 }
+
+//
+//class BoardRowMapper implements RowMapper<BoardVO> {
+//
+//	@Override
+//	public BoardVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+//		BoardVO board = new BoardVO();
+//		board.setSeq(rs.getInt("SEQ"));
+//		board.setTitle(rs.getString("TITLE"));
+//		board.setWriter(rs.getString("WRITER"));
+//		board.setContent(rs.getString("CONTENT"));
+//		board.setRegDate(rs.getDate("REGDATE"));
+//		board.setCnt(rs.getInt("CNT"));
+//		return board;
+//	}
+//}

@@ -52,11 +52,13 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>${org.springframework-version}</version>
+			<version>4.3.14.RELEASE</version>
 		</dependency>
+
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
