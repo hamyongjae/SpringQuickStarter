@@ -11,7 +11,6 @@ import com.springbook.biz.board.BoardVO;
 
 @Repository
 public class BoardDAOSpring {
-
 	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
