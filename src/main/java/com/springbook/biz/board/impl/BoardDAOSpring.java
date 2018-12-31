@@ -3,17 +3,16 @@ package com.springbook.biz.board.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.springbook.biz.board.BoardVO;
 
-@Repository("boardDAOSpring")
+@Repository
 public class BoardDAOSpring {
-	
+
 	@Autowired
-    private JdbcTemplate jdbcTemplate;
+	private JdbcTemplate jdbcTemplate;
 
 	// SQL 명령어들
 	private final String BOARD_INSERT = "insert into board(seq, title, writer, content) "
