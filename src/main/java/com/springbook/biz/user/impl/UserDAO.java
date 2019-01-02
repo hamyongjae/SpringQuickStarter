@@ -13,7 +13,7 @@ import com.springbook.biz.user.UserVO;
 
 // DAO (DATA Access Object)
 @Repository("userDAO")
-public class UserDAO implements UserService {
+public class UserDAO{
 	// JDBC 관련 변수
 	private Connection conn = null;
 	private PreparedStatement stmt = null;
@@ -28,7 +28,6 @@ public class UserDAO implements UserService {
 	/* (non-Javadoc)
 	 * @see com.springbook.biz.user.impl.UserService#getUser(com.springbook.biz.user.UserVO)
 	 */
-	@Override
 	public UserVO getUser(UserVO vo) {       
 		UserVO user = null;
 

@@ -9,10 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.stereotype.Controller;
-
 import com.springbook.biz.board.BoardVO;
-import com.springbook.biz.board.impl.BoardDAOSpring;
+import com.springbook.biz.board.impl.BoardDAO;
 import com.springbook.biz.user.UserVO;
 import com.springbook.biz.user.impl.UserDAO;
 
@@ -87,7 +85,7 @@ public class DispatcherServlet extends HttpServlet {
 			vo.setWriter(writer);
 			vo.setContent(content);
 
-			BoardDAOSpring boardDAO = new BoardDAOSpring();
+			BoardDAO boardDAO = new BoardDAO();
 			boardDAO.insertBoard(vo);
 
 			// 3. 화면 네비게이션
@@ -108,7 +106,7 @@ public class DispatcherServlet extends HttpServlet {
 			vo.setContent(content);
 			vo.setSeq(Integer.parseInt(seq));
 			
-			BoardDAOSpring boardDAO = new BoardDAOSpring();
+			BoardDAO boardDAO = new BoardDAO();
 			boardDAO.updateBoard(vo);
 			
 			// 3. 화면 네비게이션
@@ -124,7 +122,7 @@ public class DispatcherServlet extends HttpServlet {
 			BoardVO vo = new BoardVO();
 			vo.setSeq(Integer.parseInt(seq));
 			
-			BoardDAOSpring boardDAO = new BoardDAOSpring();
+			BoardDAO boardDAO = new BoardDAO();
 			boardDAO.deleteBoard(vo);
 			
 			// 3. 화면 네비게이션
@@ -139,7 +137,7 @@ public class DispatcherServlet extends HttpServlet {
 			BoardVO vo = new BoardVO();
 			vo.setSeq(Integer.parseInt(seq));
 			
-			BoardDAOSpring boardDAO = new BoardDAOSpring();
+			BoardDAO boardDAO = new BoardDAO();
 			BoardVO board = boardDAO.getBoard(vo);
 			
 			// 3. 검색 결과를 세션에 저장하고 상세 화면으로 이동한다.
@@ -153,7 +151,7 @@ public class DispatcherServlet extends HttpServlet {
 			// 1. 사용자 입력 정보 추출 (검색 기능 나중에 구현)
 			// 2. DB 연동 처리
 			BoardVO vo = new BoardVO();
-			BoardDAOSpring boardDAO = new BoardDAOSpring();
+			BoardDAO boardDAO = new BoardDAO();
 			List<BoardVO> boardList = boardDAO.getBoardList(vo);
 			
 			// 3. 검색 결과를 세션에 저장하고 목록 화면으로 이동한다.

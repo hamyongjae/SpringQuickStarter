@@ -9,6 +9,7 @@ import com.springbook.biz.user.UserVO;
 public class UserServiceClient {
 
 	public static void main(String[] args) {
+		
 		// 1. Spring 컨테이너를 구동한다.
 		AbstractApplicationContext container = new GenericXmlApplicationContext("applicationContext.xml");
 
@@ -29,6 +30,7 @@ public class UserServiceClient {
 		
 		// 4. Spring 컨테이너를 종료한다.
 		container.close();
+		
 	}
 
 }
