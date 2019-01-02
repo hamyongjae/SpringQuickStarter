@@ -97,11 +97,13 @@ public class DispatcherServlet extends HttpServlet {
 			// 1. 사용자 입력 정보 추출
 			//request.setCharacterEncoding("EUC-KR");
 			String title = request.getParameter("title");
+			String writer = request.getParameter("writer");
 			String content = request.getParameter("content");
 			String seq = request.getParameter("seq");
 			
 			// 2. DB 연동 처리
 			BoardVO vo = new BoardVO();
+			
 			vo.setTitle(title);
 			vo.setContent(content);
 			vo.setSeq(Integer.parseInt(seq));
@@ -111,6 +113,7 @@ public class DispatcherServlet extends HttpServlet {
 			
 			// 3. 화면 네비게이션
 			response.sendRedirect("getBoardList.do");
+			
 			
 		}else if(path.equals("/deleteBoard.do")) {
 			System.out.println("글 삭제 처리");
