@@ -16,7 +16,6 @@ import com.springbook.biz.board.impl.BoardDAOSpring;
 import com.springbook.biz.user.UserVO;
 import com.springbook.biz.user.impl.UserDAO;
 
-@Controller
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

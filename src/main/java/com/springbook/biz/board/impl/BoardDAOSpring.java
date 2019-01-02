@@ -1,15 +1,19 @@
 package com.springbook.biz.board.impl;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.springbook.biz.board.BoardVO;
 
-@Repository
-public class BoardDAOSpring {
+@Repository("BoardDAO")
+public class BoardDAOSpring{
+
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -38,11 +42,7 @@ public class BoardDAOSpring {
 	// 글 삭제
 
 	public void deleteBoard(BoardVO vo) {
-		int temp = vo.getSeq();
-		System.out.println("ㅇㅇ");
-		System.out.println(temp);
 		System.out.println("===> Spring JDBC로 deleteBoard() 기능 처리");
-		
 		jdbcTemplate.update(BOARD_DELETE, vo.getSeq());
 	}
 
@@ -55,8 +55,8 @@ public class BoardDAOSpring {
 
 	public List<BoardVO> getBoardList(BoardVO vo) {
 		System.out.println("===> Spring JDBC로 getBoardList() 기능 처리");
-		return jdbcTemplate.query(BOARD_LIST, new BoardRowMapper());
-	}
+		return jdbcTemplate.query(BOARD_LIST, new BoardRowMapper());	
+		}
 }
 
 //
@@ -74,3 +74,4 @@ public class BoardDAOSpring {
 //		return board;
 //	}
 //}
+//
