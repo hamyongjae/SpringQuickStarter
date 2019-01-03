@@ -15,6 +15,7 @@ import com.springbook.biz.user.UserVO;
 import com.springbook.biz.user.impl.UserDAO;
 
 public class DispatcherServlet extends HttpServlet {
+	/*
 	private static final long serialVersionUID = 1L;
 	private HandlerMapping handlerMapping;
 	private ViewResolver viewResolver;
@@ -60,5 +61,5 @@ public class DispatcherServlet extends HttpServlet {
 		// 5. 검색된 화면으로 이동한다.
 		response.sendRedirect(view);
 	}
-
+*/
 }

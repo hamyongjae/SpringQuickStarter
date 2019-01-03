@@ -12,7 +12,10 @@ import com.springbook.view.user.LoginController;
 import com.springbook.view.user.LogoutController;
 
 public class HandlerMapping {
+	
+	/*
 	private Map<String, Controller> mappings;
+	 
 	
 	public HandlerMapping() {
 		mappings = new HashMap<String, Controller>();
@@ -29,4 +32,5 @@ public class HandlerMapping {
 	public Controller getController(String path) {
 		return mappings.get(path);
 	}
+	*/
 }

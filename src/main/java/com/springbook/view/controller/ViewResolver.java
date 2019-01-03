@@ -1,6 +1,7 @@
 package com.springbook.view.controller;
 
 public class ViewResolver {
+	/*
 	public String prefix;
 	public String suffix;
 	
@@ -16,7 +17,5 @@ public class ViewResolver {
 		return prefix + viewName + suffix;
 	}
 
-
-	
-	
+	 */
 }
