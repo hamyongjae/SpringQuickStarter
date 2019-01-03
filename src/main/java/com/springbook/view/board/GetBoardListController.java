@@ -15,6 +15,7 @@ public class GetBoardListController implements Controller{
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+		
 		System.out.println("글 목록 검색 처리");
 		
 		// 1. 사용자 입력 정보 추출 (검색 기능 나중에 구현)
