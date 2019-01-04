@@ -36,7 +36,7 @@
 				</tr>
 				<tr>
 					<td bgcolor="orange">Á¶È¸¼ö</td>
-					<td align="left">${Board.cnt }</td>
+					<td align="left">${board.cnt }</td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center">
