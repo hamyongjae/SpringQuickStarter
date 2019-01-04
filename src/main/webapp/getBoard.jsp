@@ -48,7 +48,7 @@
 		</form>
 <hr>
 <a href="insertBoard.jsp">글등록</a>&nbsp;&nbsp;&nbsp;
-<a href="deleteBoard.do?seq=${Board.seq }">글삭제</a>&nbsp;&nbsp;&nbsp;
+<a href="deleteBoard.do?seq=${board.seq }">글삭제</a>&nbsp;&nbsp;&nbsp;
 <a href="getBoardList.do">글목록</a>
 </center>
 </body>
