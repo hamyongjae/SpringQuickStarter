@@ -28,11 +28,46 @@ public class BoardDAO {
 	private final String BOARD_UPDATE = "update board set title=?, content=? where seq=?";
 	private final String BOARD_DELETE = "delete from board where seq=?";
 	private final String BOARD_GET = "select * from board where seq=?";
-	private final String BOARD_LIST = "select * from board order by seq desc";
-	private final String BOARD_LIST_T = "select * from board where title like '%'||?||'%' order by seq desc";
-	private final String BOARD_LIST_C = "select * from board where content like '%'||?||'%' order by seq desc";
+	//private final String BOARD_LIST = "select * from board order by seq desc";
+	private final String BOARD_LIST_T = "select * from board where title like ? order by seq desc";
+	private final String BOARD_LIST_C = "select * from board where content like ? order by seq desc";
 
 	// CRUD 기능의 메소드 구현
+	
+	// 글 목록 조회
+		public List<BoardVO> getBoardList(BoardVO vo) {
+			System.out.println("===> JDBC로 getBoardList() 기능 처리");
+			List<BoardVO> boardList = new ArrayList<BoardVO>();
+			try {
+				conn = JDBCUtil.getConnection();
+				if(vo.getSearchCondition().equals("TITLE")) {
+					stmt = conn.prepareStatement(BOARD_LIST_T);
+				} else if(vo.getSearchCondition().equals("CONTENT")) {
+					stmt = conn.prepareStatement(BOARD_LIST_C);
+				}
+				vo.setSearchKeyword("%"+vo.getSearchKeyword()+"%"); // 포함된 문자열
+				
+				stmt.setString(1, vo.getSearchKeyword());
+				rs = stmt.executeQuery();
+				while(rs.next()) {
+					BoardVO board = new BoardVO();
+					board.setSeq(rs.getInt("SEQ"));
+					board.setTitle(rs.getString("TITLE"));
+					board.setWriter(rs.getString("WRITER"));
+					board.setContent(rs.getString("CONTENT"));
+					board.setRegDate(rs.getDate("REGDATE"));
+					board.setCnt(rs.getInt("CNT"));
+					boardList.add(board);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				JDBCUtil.close(rs, stmt, conn);
+			}
+			return boardList;
+		}
+		
+		
 	// 글 등록
 	public void insertBoard(BoardVO vo) {
 		System.out.println("===> JDBC로 insertBoard() 기능 처리");
@@ -110,36 +145,7 @@ public class BoardDAO {
 		return board;
 	}
 
-	// 글 목록 조회
-	public List<BoardVO> getBoardList(BoardVO vo) {
-		System.out.println("===> JDBC로 getBoardList() 기능 처리");
-		List<BoardVO> boardList = new ArrayList<BoardVO>();
-		try {
-			conn = JDBCUtil.getConnection();
-			if(vo.getSearchCondition().equals("TITLE")) {
-				stmt = conn.prepareStatement(BOARD_LIST_T);
-			} else if(vo.getSearchCondition().equals("CONTENT")) {
-				stmt = conn.prepareStatement(BOARD_LIST_C);
-			}
-			stmt.setString(1, vo.getSearchKeyword());
-			rs = stmt.executeQuery();
-			while(rs.next()) {
-				BoardVO board = new BoardVO();
-				board.setSeq(rs.getInt("SEQ"));
-				board.setTitle(rs.getString("TITLE"));
-				board.setWriter(rs.getString("WRITER"));
-				board.setContent(rs.getString("CONTENT"));
-				board.setRegDate(rs.getDate("REGDATE"));
-				board.setCnt(rs.getInt("CNT"));
-				boardList.add(board);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			JDBCUtil.close(rs, stmt, conn);
-		}
-		return boardList;
-	}
+	
 }
 
 /*
