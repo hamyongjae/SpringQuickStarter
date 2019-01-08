@@ -43,7 +43,6 @@ public class BoardController {
 	// 글 삭제
 	@RequestMapping("/deleteBoard.do")
 	public String deleteBoard(BoardVO vo) {
-		
 		boardService.deleteBoard(vo);
 		return "getBoardList.do";
 	}
@@ -67,13 +66,20 @@ public class BoardController {
 	// 글 목록 검색
 	@RequestMapping("/getBoardList.do")
 	public String getBoardList(
-//			@RequestParam(value="searchCondition", defaultValue="TITLE", required=false) String condition,
-//			@RequestParam(value="searchKeyword", defaultValue="", required=false) String keyword,
-			BoardVO vo, Model model) 
-	{
-		// Model 정보 저장
-		model.addAttribute("boardList", boardService.getBoardList(vo));
-		return "getBoardList.jsp"; // View 이름 리턴
-	}
+			//@RequestParam(value="searchCondition", defaultValue="TITLE", required=false) String condition,
+			//@RequestParam(value="searchKeyword", defaultValue="", required=false) String keyword,
+			BoardVO vo, Model model) {
 
+		if(vo.getSearchCondition() == null) {
+			vo.setSearchCondition("TITLE");
+		}
+
+		if(vo.getSearchKeyword() == null) {
+			vo.setSearchKeyword("");
+		}
+
+		model.addAttribute("boardList", boardService.getBoardList(vo));
+
+		return "getBoardList.jsp";
+	}
 }

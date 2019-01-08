@@ -23,3 +23,7 @@ select SEQ from board;
 desc board;
 delete from board where seq=1
 DROP TABLE board;
+
+select * from board where title like '%'||'무멜'||'%' order by seq desc;
+select * from board where content like '%'||?||'%' order by seq desc;
+
