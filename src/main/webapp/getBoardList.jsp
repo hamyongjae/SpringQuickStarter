@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -50,7 +51,7 @@
 					<td align="left"><a href="getBoard.do?seq=${board.seq }">${board.title }</a>
 					</td>
 					<td>${board.writer}</td>
-					<td>${board.regDate }</td>
+					<td><fmt:formatDate value="${board.regDate }" pattern="yyyy-MM-dd"/></td>
 					<td>${board.cnt }</td>
 				</tr>
 			</c:forEach>
