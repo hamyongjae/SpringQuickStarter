@@ -14,7 +14,7 @@ CREATE TABLE USERS(
 	ROLE VARCHAR(5)
 );
 
-insert into USERS value ("test", "1234","gkadydwo","22");
+insert into USERS value ("gkadydwo", "1234","함용재","1");
 insert into USERS value ("yongjae2", "1111","함용재","개발자");
 update board set title="테스트글1 바껴라!", content="바껴라!" where seq=15;
 insert into 
