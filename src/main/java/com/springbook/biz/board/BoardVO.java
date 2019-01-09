@@ -2,48 +2,37 @@ package com.springbook.biz.board;
 
 import java.util.Date;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlTransient;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@XmlAccessorType(XmlAccessType.FIELD)
+// VO(Value Object)
+@Entity
+@Table(name="BOARD")
 public class BoardVO {
-	@XmlAttribute
+	@Id
+	@GeneratedValue
 	private int seq;
 	private String title;
 	private String writer;
 	private String content;
-	private Date regDate;
+	@Temporal(TemporalType.DATE)
+	private Date regDate = new Date();
 	private int cnt;
-	@XmlTransient
+	@Transient
 	private String searchCondition;
-	@XmlTransient
+	@Transient
 	private String searchKeyword;
-	@XmlTransient
+	@Transient
 	private MultipartFile uploadFile;
-	
-	@JsonIgnore
-	public String getSearchCondition() {
-		return searchCondition;
-	}
-	
-	public void setSearchCondition(String searchCondition) {
-		this.searchCondition = searchCondition;
-	}
-	
-	@JsonIgnore
-	public String getSearchKeyword() {
-		return searchKeyword;
-	}
-	
-	public void setSearchKeyword(String searchKeyword) {
-		this.searchKeyword = searchKeyword;
-	}
 	public int getSeq() {
 		return seq;
 	}
@@ -80,19 +69,27 @@ public class BoardVO {
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
 	}
-	
-	@JsonIgnore
+	public String getSearchCondition() {
+		return searchCondition;
+	}
+	public void setSearchCondition(String searchCondition) {
+		this.searchCondition = searchCondition;
+	}
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
 	public MultipartFile getUploadFile() {
 		return uploadFile;
 	}
-	
 	public void setUploadFile(MultipartFile uploadFile) {
 		this.uploadFile = uploadFile;
 	}
-	@Override
-	public String toString() {
-		return "BoardVO [seq=" + seq + ", title=" + title + ", writer=" + writer + ", content=" + content + ", regDate="
-				+ regDate + ", cnt=" + cnt + ", searchCondition=" + searchCondition + ", searchKeyword=" + searchKeyword
-				+ "]";
-	}
+	
+	
+	
+	
+	
 }
